@@ -24,6 +24,9 @@ clc;
 % plotr([ROTZ(0)])
 
 % simulate the phantom by a semi-circle
+
+% writeObj = VideoWriter("PI.avi");
+% open(writeObj);
 r = 10;
 figure('units','normalized','outerposition',[0 0 1 1])
 xlim([-10 10])
@@ -58,5 +61,9 @@ for theta = 45:5:135
     end
     
     drawnow;
+%     frame = getframe;
+%     writeVideo(writeObj, frame);
+    
 end
 
+% close(writeObj);
