@@ -25,7 +25,11 @@ clc;
 
 % simulate the phantom by a semi-circle
 r = 10;
-figure;
+figure('units','normalized','outerposition',[0 0 1 1])
+xlim([-10 10])
+ylim([-10 10])
+zlim([0 12])
+
 
 
 teta=0:0.01:pi;
