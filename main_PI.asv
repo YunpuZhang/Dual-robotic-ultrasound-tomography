@@ -47,16 +47,10 @@ for theta = 45:5:135
     X = [ROTZ(-90-theta),[r*cos(theta*pi/180) 0 r*sin(theta*pi/180)]';0 0 0 1];
     P_I = findPItest(X_trus,X);
     direction = X_trus*unit_z;
-    h = plotv3([0;0;0], direction(1:3), 'green');
-    pause(0.2);
-    plotp3(P_I);
+    plotp3(P_I)
     pause(0.1);
-    
-    if (theta ~= 135)
-        pause(0.1);
-        set(h,'Visible','off')
-    end
-    
+    h = plotv3([0;0;0], direction(1:3), 'green');
+    set(h,'Visible','off')
     drawnow;
 end
 

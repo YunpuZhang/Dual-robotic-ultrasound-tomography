@@ -1,4 +1,4 @@
-function plotv3(X0_vec, X1_vec, varargin)
+function h = plotv3(X0_vec, X1_vec, varargin)
 % Function accepts two 3x1 vectors and plots their difference as a line
 % segment from X0_vec to X1_vec, with an optional argument for coloring.
 
@@ -44,4 +44,4 @@ else
 end
 
 
-plot3(m(:,1), m(:,2), m(:,3), "Color", colorspec, "Marker", 'o');
+h = plot3(m(:,1), m(:,2), m(:,3), "Color", colorspec, "Marker", 'o');

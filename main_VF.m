@@ -33,6 +33,9 @@ for theta = 45:5:135
     direction = X_trus*unit_z;
 %     disp(direction);
     P_I = findPItest(X_trus,X);
+    h = plotv3([0;0;0], direction(1:3), 'green');
+    pause(0.2);
+    
     plotp3(P_I);
     pause(0.3);
     
@@ -40,7 +43,10 @@ for theta = 45:5:135
     fup = initial - Jdq;
     plotv3(fup(1:3), fup(1:3) + fup(4:6), 'red');
     
-
-    pause(0.3);
+    
+    if (theta ~= 135)
+        pause(0.3);
+        set(h,'Visible','off')
+    end
     drawnow;
 end
