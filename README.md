@@ -2,7 +2,7 @@
 
 The functionity implemented are the BXp calculation, motion planing algorithm, and virtual fixture. 
 
-The BXp problem code could be found in 
+The BXp problem code could be found in bxp_RF_calibrater.zip.
 
 
 
