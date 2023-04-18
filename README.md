@@ -1,6 +1,6 @@
 # Dual-robotic-ultrasound-tomography
 
-The functionity implemented are the BXp calculation, motion planing algorithm, ROS control, and virtual fixture. They are in three folders and one zip file respectively. (The BXp calculation code could be found in bxp_RF_calibrater.zip.)
+The functionity implemented are the BXp calculation, motion planing algorithm, ROS control, and virtual fixture. They are in three folders and one zip file respectively. (The BXp calculation code could be found in bxp_RF_calibrater.zip.) 
 
 
 MOTION PLANNING:
@@ -21,4 +21,4 @@ To visualize the result of virtual fixture, you may want to run main_VF.m, which
 
 ROS Control:
 
-In this folder, a communication between two laptops were implemented, as well as using a KDC101 controller to control the rotary stage. 
+In this folder, a communication between two laptops were implemented, as well as using a KDC101 controller to control the rotary stage. The TRUS_Control.m file is the main code. 
