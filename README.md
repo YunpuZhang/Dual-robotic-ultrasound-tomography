@@ -22,3 +22,5 @@ To visualize the result of virtual fixture, you may want to run main_VF.m, which
 ROS Control:
 
 In this folder, a communication between two laptops were implemented, as well as using a KDC101 controller to control the rotary stage. The TRUS_Control.m file is the main code. 
+
+To run this code, you need to implement a software for the KDC101 controller (Kinesis Thorlabs). The code depends on some .ddl files from the software. Put that software in default location would make the life easier, as that is where the code would look for those .ddl files. If not, the position of all the files needed to be changed in the code. -> Begin with KDC101.init. 
