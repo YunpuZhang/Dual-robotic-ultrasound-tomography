@@ -8,6 +8,7 @@ KDC101_init
 % Init ROS core
 rosshutdown;
 rosinit % for hopkins, 10.203.215.162
+        % for Bailan 10.203.169.211
 
 pause(2);
 TRUSpub = rospublisher("/TRUS","std_msgs/Float64","DataFormat","struct");
