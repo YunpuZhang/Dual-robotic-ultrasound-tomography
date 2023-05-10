@@ -1,17 +1,3 @@
-%% Logics
-% 1. Create an UR5 object
-% NEED: 
-% ** Virtual Fixture need: current position, desired position, as well as
-% jacobian
-% ** Motion Planning needs X_TRUS, TODO
-% 2. Mock a transformation X_TRUS 
-% 3. Get transformation B_A, Body Jacobian, joint angles
-% 4. Given the transformations to findPi_Test -> Get desired XYZRPY
-% 5. Find the current position XYZRPY 
-% 6. Feed the current and desired RPY to virtual fixture -> get q
-% 7. Move the robot with the result q from virtual fixture
-% 8. Update the transformation X_TRUS by algorithm
-
 %% Init Core and Publisher
 clc;
 clear;
