@@ -22,7 +22,7 @@ Pt = [5.7577, 0, 8.2228, 0.5736, 0, 0.8192]';
 
 
 delta = xp - Pt;
-f = [0, 0, 0, 0, 0, 0]';
+f = [0, 0, 3, 0, 0, 0]';
 
 %% Approximate sphere with n*m polyhedron
 % For Stay as a Point
@@ -30,7 +30,7 @@ n = 4;
 m = 4;
 
 dt = 0.02;
-epsilon1 = 0.02;
+epsilon1 = 0.05;
 
 Hp = zeros(n*m, 6);
 hp = zeros(n*m, 1);
@@ -52,7 +52,7 @@ hp = hp - Hp*delta;
 Hd = zeros(n*m, 6);
 hd = zeros(n*m, 1);
 
-epsilon2 = 0.02;
+epsilon2 = 0.0;
 
 mc = 1;
 nc = 1;
@@ -80,7 +80,7 @@ for i = 1:1:6
 end
 % dq = lsqlin(W*J, delta, H*J, -h, [], [], lb, ub);
 
-dq = lsqlin(W*J, delta + f, H*J, -h);
+dq = lsqlin(W*J, f, H*J, -h);
 
 % [xp; zeros(3, 1)] + 
 Jdq = J*dq;
@@ -88,4 +88,9 @@ xp - Jdq
 
 if (norm(xp - Jdq - Pt) <= 1.0e-5)
     disp("True");
+else
+    disp("False");
+    disp(norm(xp - Jdq - Pt))
 end
+
+% delta + 

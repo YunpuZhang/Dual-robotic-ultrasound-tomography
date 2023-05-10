@@ -22,14 +22,14 @@ Pt = [5.7577, 0, 8.2228, 0.5736, 0, 0.8192]';
 
 
 delta = xp - Pt;
-f = [0, 0, 0, 0, 0, 0]';
+f = [0, 0, -1+2*rand(1), 0, 0, 0]';
 
 %% Approximate sphere with n*m polyhedron
 n = 4;
 m = 4;
 
 dt = 0.02;
-epsilon = 0.02;
+epsilon = 0.05;
 
 H = zeros(n*m, 6);
 h = zeros(n*m, 1);
@@ -37,7 +37,12 @@ h = zeros(n*m, 1);
 mc = 1;
 nc = 1;
 for i = 1:1:(n*m)
-    h(i) = -epsilon;
+    if (i > 12)
+        h(i) = -epsilon;
+    else
+        h(i) = -epsilon;
+    end
+%     h(i) = 0;
     H(i, :) = [-cos(2*pi*nc/n)*cos(2*pi*mc/m), -cos(2*pi*nc/n)*sin(2*pi*mc/m), -sin(2*pi*nc/n), 0, 0, 0];
     mc = mc + 1;
     if (mc > m)
@@ -45,6 +50,7 @@ for i = 1:1:(n*m)
         nc = nc + 1;
     end
 end
+% h(16) = -epsilon;
 h = h - H*delta;
 
 
@@ -61,8 +67,8 @@ end
 
 dq = lsqlin(W*J, delta + f, H*J, -h);
 
-% [xp; zeros(3, 1)] + 
-Jdq = J*dq
+Jdq = J*dq;
+Pt
 xp - Jdq
 
 if (norm(xp - Jdq - Pt) <= 1.0e-5)
