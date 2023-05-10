@@ -1,6 +1,6 @@
 # Dual-robotic-ultrasound-tomography
 
-The functionality implemented is the BXp calculation, motion planning algorithm, ROS control, and virtual fixture. They are in three folders and one zip file respectively. (The BXp calculation code could be found in bxp_RF_calibrater.zip.) 
+The functionality implemented is the BXp calculation, PointCloud Registration, motion planning algorithm, ROS control, and virtual fixture. They are in three folders and two zip files respectively. (The BXp calculation code could be found in bxp_RF_calibrater.zip., similar for the pointcloudregistration.zip) 
 
 In addition to those functionalities, there is also a directory named Real Tomography, which contains the code for controlling the real robot and motor to achieve the desired ultrasound scan behavior. If you are not interested in MATLAB simulation and would like to focus on the final used programs, please skip the first three directories and jump to ROS Control. 
 
