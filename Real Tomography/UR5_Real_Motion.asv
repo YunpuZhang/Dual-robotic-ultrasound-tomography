@@ -118,22 +118,28 @@ for theta = -5:dtheta:5
     
     % Force converted from probe to base_link, as well as with a factor k
     eelink2tool0 = quat2rotm([0.500, -0.500, 0.500, -0.500]);
-    
+    if (theta == -5)
+        f = zeros(6,1);
+    end
     f = [0, wrench_z - desired_force, 0, 0, 0, 0]';
     f_p = (X_trus)*[f(1:3);0];
     f(1:3) = f_p(1:3);
     f = k*f;
-    % Get needed movements from virtual fixture
+    
     Jdq = VF_checkpoint(initial, P_I6 , f);
-    % Convert it to transformation in the "base_link" frame
+    
     Result = [ROTZ(initial(6) - Jdq(6))*ROTY(initial(5) - Jdq(5))*ROTX(initial(4) - Jdq(4)), initial(1:3) - Jdq(1:3, 1);
                                                                                  zeros(1,3),                          1];
+%     disp("SHOW: ");
+%     offset = P_I6(1:3) - (initial(1:3) - Jdq(1:3, 1));
+%     offset_p = inv(X)*[offset; 0];
+%     offset_p = offset_p(1:3);
+%     disp(offset_p);
+%     pause(1);
  
     Result = Result * inv(XA) * [eelink2tool0 [0 0 0]'; 0 0 0 1];
-    % Use inverse kinematics to get the joint angles and find closest one
     qtest = ur5InvKin(Result);
     q_test = getbest(qtest, q);
-    % Move the robot, then next iteration
     ur5.move_joints(q_test, T_step);
     pause(T_step);
     T_step = T_step_draw;    
