@@ -28,7 +28,7 @@ To visualize the result of the virtual fixture, you may want to run main_VF.m, w
 
 In this folder, a communication between two laptops was implemented (this folder only has one side of the code for the Windows computer, which is used to control the TRUS probe based on messages received from a ROS publisher on a Ubuntu computer, if you are looking for the rest, please read the documentation below for "Real Tomography"), as well as using a KDC101 controller to control the rotary stage. The TRUS_Control.m file is the main code. 
 
-To run this code, you need to first implement software for the KDC101 controller (Kinesis Thorlabs). The code depends on some .ddl files from the software. Putting that software in the default location would make life easier, as that is where the code would look for those .ddl files. If not, the position of all the files needed to be changed in the code. -> Begin with KDC101.init. In addition, the softwares only support Windows system. 
+To run this code, you need to first implement software for the KDC101 controller (Kinesis Thorlabs). The code depends on some .ddl files from the software. Putting that software in the default location would make life easier, as that is where the code would look for those .ddl files. If not, the position of all the files needed to be changed in the code. -> Begin with KDC101.init. In addition, the software only supports Windows system. 
 
 Other than that, more instructions for TRUS_Control.m will be in the next section. 
 
@@ -44,7 +44,7 @@ Then, you also need a launch file for the UR5, which could be found in the ROS p
 
 After that, you need MATLAB on your computer with ROS_Toolbox installed. Be careful with the version of Python required based on your MATLAB version. You may need to also install a specific version of Python based on MATLAB documentation. 
 
-The first section is to create the needed ROS enviroment, the second section is where all the algorithm comes together. 
+The first section is to create the needed ROS environment, the second section is where all the algorithm comes together. 
 
 As mentioned in the ROS Control section, the part on the Ubuntu computer is the first section of this code. The order of code running should be 
 1. Run the first section of UR5_Real_Motion.m on the Ubuntu computer
@@ -52,9 +52,38 @@ As mentioned in the ROS Control section, the part on the Ubuntu computer is the 
 3. Run the second section of TRUS_Control.m on the Windows computer
 4. Run the second section of UR5_Real_Motion on the Ubuntu computer.
 
-The UR5_Real_Motion.m file could be run without the Windows computer, it would still publish messages; there is just no computer listen to the messages. 
+The UR5_Real_Motion.m file could be run without the Windows computer, it would still publish messages; there is just no computer listening to the messages. 
 
-For the logics of this program, refer to the comments inside the program. 
+For the logic of this program, refer to the comments inside the program. 
+### plotp3.m and plotv3.m
+Those two are used to make some plots for either points or vectors.
+
+### ROTX.m, ROTY.m, ROTZ.m
+Those would give 3 by 3 rotation matrix based on inputs roll, pitch, or yaw angles.
+
+### test_kinematics.m
+This is the program we used to collect some transformation at certain positions. 
+
+### tf_frame.m
+This is a function used to draw some frames in Rviz simulation. 
+
+### ur5_interface.m
+This is the function for a MATLAB ROS interface. It would create a MATLAB ur5 object used to control the real robot. 
+
+### ur5FwdKins.m
+This will calculate the forward kinematics for the UR5.
+
+### ur5InvKins.m
+This will calculate all 8 possible solutions for ur5 inverse kinematics for a certain position and orientation. 
+
+### getbest.m
+This would find the closest configuration from the 8 solutions provided by the inverse kinematics.
+
+### DH.m
+Used by ur5InvKins.m
+
+### UR5_VF_SIM_Valid.m
+This is the program we used to create a Rviz simulation. Basically, it is an early version to prove our ideas for UR5_Real_Motion.m. 
 
 ### Unused Programs USCT
 There are a lot of functions made during the past months but ended up not being used, as well as some code served as unit test code. Those are sorted into this sub-directory. 
