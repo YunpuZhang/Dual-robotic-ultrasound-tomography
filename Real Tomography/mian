@@ -1,0 +1,4 @@
+[theta1] = ur5InvKin(transformation);
+current = ur5.get_current_joints();
+theta1 = getbest(theta1,current);
+%ur5.move_joints(theta1,100)
