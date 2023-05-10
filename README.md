@@ -4,8 +4,8 @@ The functionality implemented is the BXp calculation, PointCloud Registration, m
 
 In addition to those functionalities, there is also a directory named Real Tomography, which contains the code for controlling the real robot and motor to achieve the desired ultrasound scan behavior. If you are not interested in MATLAB simulation and would like to focus on the final used programs, please skip the first three directories and jump to ROS Control. 
 
-## Bxp_RF_calibrater.zip:
-Instructions are inside the zip file. 
+## Bxp_RF_calibrater.zip and pointcloudregistration.zip:
+Instructions are inside the zip files. 
 
 
 ## MOTION PLANNING:
