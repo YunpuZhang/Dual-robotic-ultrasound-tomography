@@ -1,4 +1,6 @@
-function outputz = ROTz(theta)
-theta = theta*pi/180;
-outputz = [cos(theta) 0 sin(theta); 0 1 0; -sin(theta) 0 cos(theta)];
-end
+function R_after = ROTZ(yaw)
+            %rotation based on Z axis
+            %input : scalar roll value
+            %output : 3*3 matrix 
+            R_after = [cos(yaw) -sin(yaw) 0;sin(yaw) cos(yaw) 0; 0 0 1];
+end   
