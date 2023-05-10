@@ -1,5 +1,5 @@
 %% Run First
-KDC101disconnect(KDC101);
+% KDC101disconnect(KDC101);
 
 clc;
 clear all;
