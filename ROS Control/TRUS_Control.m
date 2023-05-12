@@ -21,8 +21,10 @@ pause(1);
 
 KDC101.MoveTo(95, 15000);
 
-
+%% Try
+KDC101.MoveTo(95, 15000);
 %% Wait for the other computer to connect to the ROS master, then RUN this Section
+
 for i = -5:0.4:5
     angle = receive(TRUSsub, 15).Data;
     disp(angle);
